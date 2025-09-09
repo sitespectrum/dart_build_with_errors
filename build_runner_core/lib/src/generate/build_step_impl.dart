@@ -277,19 +277,19 @@ class _DelayedResolver implements Resolver {
   @override
   Future<CompilationUnit> compilationUnitFor(
     AssetId assetId, {
-    bool allowSyntaxErrors = false,
+    bool allowSyntaxErrors = true,
   }) async => (await _delegate).compilationUnitFor(
     assetId,
-    allowSyntaxErrors: allowSyntaxErrors,
+    allowSyntaxErrors: true,
   );
 
   @override
   Future<LibraryElement2> libraryFor(
     AssetId assetId, {
-    bool allowSyntaxErrors = false,
+    bool allowSyntaxErrors = true,
   }) async => (await _delegate).libraryFor(
     assetId,
-    allowSyntaxErrors: allowSyntaxErrors,
+    allowSyntaxErrors: true,
   );
 
   @override

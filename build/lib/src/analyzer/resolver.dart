@@ -54,7 +54,7 @@ abstract class Resolver {
   /// parse a single file and does not give you a resolved element model.
   Future<CompilationUnit> compilationUnitFor(
     AssetId assetId, {
-    bool allowSyntaxErrors = false,
+    bool allowSyntaxErrors = true,
   });
 
   /// Returns a resolved library representing the file defined in [assetId].
@@ -64,7 +64,7 @@ abstract class Resolver {
   ///   `false` (the default), throws a [SyntaxErrorInAssetException].
   Future<LibraryElement2> libraryFor(
     AssetId assetId, {
-    bool allowSyntaxErrors = false,
+    bool allowSyntaxErrors = true,
   });
 
   /// Returns the first resolved library identified by [libraryName].

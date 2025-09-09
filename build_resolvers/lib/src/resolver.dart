@@ -121,7 +121,7 @@ class PerActionResolver implements ReleasableResolver {
   @override
   Future<CompilationUnit> compilationUnitFor(
     AssetId assetId, {
-    bool allowSyntaxErrors = false,
+    bool allowSyntaxErrors = true,
   }) => _step.trackStage('compilationUnitFor $assetId', () async {
     if (!await _step.canRead(assetId)) {
       throw AssetNotFoundException(assetId);
@@ -136,7 +136,7 @@ class PerActionResolver implements ReleasableResolver {
   @override
   Future<LibraryElement2> libraryFor(
     AssetId assetId, {
-    bool allowSyntaxErrors = false,
+    bool allowSyntaxErrors = true,
   }) => _step.trackStage('libraryFor $assetId', () async {
     if (!await _step.canRead(assetId)) {
       throw AssetNotFoundException(assetId);
@@ -256,7 +256,7 @@ class AnalyzerResolver implements ReleasableResolver {
   @override
   Future<CompilationUnit> compilationUnitFor(
     AssetId assetId, {
-    bool allowSyntaxErrors = false,
+    bool allowSyntaxErrors = true,
   }) {
     return _driverPool.withResource(() async {
       if (!_driver.isUriOfExistingFile(assetId.uri)) {
@@ -278,7 +278,7 @@ class AnalyzerResolver implements ReleasableResolver {
   @override
   Future<LibraryElement2> libraryFor(
     AssetId assetId, {
-    bool allowSyntaxErrors = false,
+    bool allowSyntaxErrors = true,
   }) async {
     // Since this calls `getLibraryByUri` it is a "read", and can use the shared
     // resource to allow concurrent reads.
