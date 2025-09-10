@@ -280,7 +280,7 @@ class _DelayedResolver implements Resolver {
     bool allowSyntaxErrors = false,
   }) async => (await _delegate).compilationUnitFor(
     assetId,
-    allowSyntaxErrors: allowSyntaxErrors,
+    allowSyntaxErrors: true,
   );
 
   @override
@@ -289,7 +289,7 @@ class _DelayedResolver implements Resolver {
     bool allowSyntaxErrors = false,
   }) async => (await _delegate).libraryFor(
     assetId,
-    allowSyntaxErrors: allowSyntaxErrors,
+    allowSyntaxErrors: true,
   );
 
   @override
